@@ -5,7 +5,6 @@ import com.rhf.common.security.crypto.exception.EncryptException;
 
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
-import java.nio.charset.Charset;
 import java.util.Base64;
 import java.util.Properties;
 
@@ -22,7 +21,7 @@ public class AesOperator extends AbstractOperator {
     private final SecretKey secretKey;
 
     public AesOperator(Properties properties) {
-        super(properties, ALGORITHM_NAME);
+        super(properties);
         // 初始化密钥
         String keyStr = (String) super.getProperties().get("key");
         // 将Base64编码的字符串解码为字节数组
@@ -76,5 +75,10 @@ public class AesOperator extends AbstractOperator {
         } catch (Exception e) {
             throw new DecryptException("unSupport encoding " + charset, e);
         }
+    }
+
+    @Override
+    public String getType() {
+        return ALGORITHM_NAME;
     }
 }

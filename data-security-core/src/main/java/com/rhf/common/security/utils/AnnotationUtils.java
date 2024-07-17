@@ -14,6 +14,14 @@ public class AnnotationUtils {
 
     private static final String JAVA_ANNOTATION_PKG = "java";
 
+    /**
+     * 检查注解是否为预期注解
+     *
+     * @param annotation      待检查注解
+     * @param annotationClazz 期望注解
+     * @param <T>             泛型
+     * @return 注解信息
+     */
     public static <T extends Annotation> T findAnnotation(Annotation annotation, Class<T> annotationClazz) {
         if (annotationClazz == null) {
             return null;

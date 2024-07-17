@@ -12,17 +12,10 @@ import java.util.Properties;
 @Getter
 @Setter
 public abstract class AbstractOperator implements ICryptoOperator {
-    private final String algorithmName;
 
     private final Properties properties;
 
-    public AbstractOperator(Properties properties, String algorithmName) {
+    public AbstractOperator(Properties properties) {
         this.properties = properties;
-        this.algorithmName = algorithmName;
-    }
-
-    @Override
-    public String getType() {
-        return algorithmName;
     }
 }

@@ -21,7 +21,7 @@ public class ExampleOperator extends AbstractOperator {
     private static final String CONFIG_PATH = "config-path";
 
     public ExampleOperator(Properties properties) {
-        super(properties, ALGORITHM_NAME);
+        super(properties);
         String configPath = (String) properties.get(CONFIG_PATH);
         if (configPath == null || configPath.isEmpty()) {
             throw new CryptoException("config-path is null!");
@@ -47,5 +47,10 @@ public class ExampleOperator extends AbstractOperator {
     @Override
     public String decryptString(String data, String charset) {
         throw new EncryptException("decrypt fail!");
+    }
+
+    @Override
+    public String getType() {
+        return ALGORITHM_NAME;
     }
 }
