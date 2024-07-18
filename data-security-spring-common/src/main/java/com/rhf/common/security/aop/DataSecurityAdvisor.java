@@ -87,7 +87,7 @@ public class DataSecurityAdvisor extends AbstractPointcutAdvisor implements Bean
                     if (Proxy.isProxyClass(targetClass)) {
                         return false;
                     }
-                    Method specificMethod = AopUtils.getMostSpecificMethod(method, targetClass);
+                     Method specificMethod = AopUtils.getMostSpecificMethod(method, targetClass);
                     return specificMethod != method && matchesMethod(specificMethod);
                 }
 

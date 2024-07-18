@@ -32,7 +32,7 @@ public class DataSecurityMaskProperties {
     /**
      * 自定义的脱敏规则
      */
-    private List<Class<? extends IDataMaskStrategy>> startegyList;
+    private List<Class<? extends IDataMaskStrategy>> strategies;
 
     /**
      * 加密算法名字，如果没有配置时使用
@@ -60,7 +60,7 @@ public class DataSecurityMaskProperties {
         }
 
         // 加载配置中的脱敏规则
-        this.startegyList = new ArrayList<>();
+        this.strategies = new ArrayList<>();
         for (String key : indexList) {
             String className = properties.getProperty(strategyPrefix + key);
             if (className == null) {
@@ -70,7 +70,7 @@ public class DataSecurityMaskProperties {
                 Class<?> clazz = Class.forName(className);
                 // 判断是否为脱敏实现
                 if (IDataMaskStrategy.class.isAssignableFrom(clazz)) {
-                    this.startegyList.add((Class<? extends IDataMaskStrategy>) clazz);
+                    this.strategies.add((Class<? extends IDataMaskStrategy>) clazz);
                 } else {
                     throw new CryptoException("class " + className + " is not a subclass of IDataMaskStrategy!");
                 }

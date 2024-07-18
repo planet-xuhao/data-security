@@ -27,9 +27,9 @@ public class EncryptAspectInitializer {
     public DataSecurityAdvisor init() {
         Advice advice = new DataSecurityEncryptMethodAdvice(dataSecurityProperties, dataEncryptSpec);
         DataSecurityAdvisor advisor = new DataSecurityAdvisor(advice, EncryptMethod.class);
-        if (dataSecurityProperties != null && dataSecurityProperties.getEncryptProperties() != null
-                && dataSecurityProperties.getEncryptProperties().getAopOrder() != null) {
-            advisor.setOrder(dataSecurityProperties.getEncryptProperties().getAopOrder());
+        if (dataSecurityProperties != null && dataSecurityProperties.getEncrypt() != null
+                && dataSecurityProperties.getEncrypt().getAopOrder() != null) {
+            advisor.setOrder(dataSecurityProperties.getEncrypt().getAopOrder());
         }
         return advisor;
     }

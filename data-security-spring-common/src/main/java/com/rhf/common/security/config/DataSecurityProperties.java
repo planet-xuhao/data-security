@@ -23,19 +23,25 @@ public class DataSecurityProperties {
     /**
      * 加密配置
      */
-    private DataSecurityEncryptProperties encryptProperties;
+    private DataSecurityEncryptProperties encrypt;
 
     /**
      * 脱敏配置
      */
-    private DataSecurityMaskProperties maskProperties;
+    private DataSecurityMaskProperties mask;
 
+    /**
+     * springboot自动装配
+     */
     public DataSecurityProperties() {
     }
 
+    /**
+     * spring方式
+     */
     public DataSecurityProperties(Properties properties) {
         this.enabled = Boolean.parseBoolean(properties.getProperty(PREFIX + ".enabled", "true"));
-        this.maskProperties = new DataSecurityMaskProperties(properties);
-        this.encryptProperties = new DataSecurityEncryptProperties(properties);
+        this.mask = new DataSecurityMaskProperties(properties);
+        this.encrypt = new DataSecurityEncryptProperties(properties);
     }
 }

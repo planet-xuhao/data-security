@@ -29,9 +29,9 @@ public class MaskStrategyManagerInitializer {
     public MaskStrategyManager init() {
         MaskStrategyManager maskStrategyManager = new MaskStrategyManager();
         // 注册配置文件中的
-        DataSecurityMaskProperties maskProperties = dataSecurityProperties.getMaskProperties();
+        DataSecurityMaskProperties maskProperties = dataSecurityProperties.getMask();
         if (maskProperties != null) {
-            List<Class<? extends IDataMaskStrategy>> configList = maskProperties.getStartegyList();
+            List<Class<? extends IDataMaskStrategy>> configList = maskProperties.getStrategies();
             if (configList != null) {
                 for (Class<? extends IDataMaskStrategy> ele : configList) {
                     try {

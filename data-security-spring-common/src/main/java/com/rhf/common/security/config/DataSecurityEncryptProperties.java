@@ -33,7 +33,7 @@ public class DataSecurityEncryptProperties {
     /**
      * 加密算法配置
      */
-    private List<CryptoOperatorProperties> operatorList;
+    private List<CryptoOperatorProperties> operators;
 
     public DataSecurityEncryptProperties() {
 
@@ -58,7 +58,7 @@ public class DataSecurityEncryptProperties {
             }
         }
 
-        this.operatorList = new ArrayList<>();
+        this.operators = new ArrayList<>();
         // 获取index下的所有配置
         for (String index : indexList) {
             // 前缀是spring.data-security.encrypt.operators + 数组下标
@@ -78,7 +78,7 @@ public class DataSecurityEncryptProperties {
 
             // 注册所有的加密算法
             CryptoOperatorProperties operatorProperties = new CryptoOperatorProperties(sub);
-            this.operatorList.add(operatorProperties);
+            this.operators.add(operatorProperties);
         }
     }
 }

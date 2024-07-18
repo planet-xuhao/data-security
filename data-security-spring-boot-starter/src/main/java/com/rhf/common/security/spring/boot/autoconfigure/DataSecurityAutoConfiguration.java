@@ -18,8 +18,8 @@ import org.springframework.context.annotation.Import;
 @ConditionalOnProperty(prefix = DataSecurityProperties.PREFIX, name = "enabled", havingValue = "true", matchIfMissing = true)
 public class DataSecurityAutoConfiguration {
 
-    @Bean
     @ConfigurationProperties(prefix = DataSecurityProperties.PREFIX)
+    @Bean
     public DataSecurityProperties dataSecurityProperties() {
         return new DataSecurityProperties();
     }

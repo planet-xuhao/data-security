@@ -101,7 +101,7 @@ public class DataSecurityEncryptMethodAdvice implements MethodInterceptor {
     }
 
     private boolean isExclude(String className) {
-        DataSecurityEncryptProperties encryptProperties = dataSecurityProperties.getEncryptProperties();
+        DataSecurityEncryptProperties encryptProperties = dataSecurityProperties.getEncrypt();
         if (encryptProperties != null && encryptProperties.getExcludes() != null) {
             for (String exclude : encryptProperties.getExcludes()) {
                 if (exclude != null && !exclude.isEmpty() && className.startsWith(exclude)) {
@@ -174,7 +174,7 @@ public class DataSecurityEncryptMethodAdvice implements MethodInterceptor {
         MaskEncryptedMethod maskEncryptedMethod = methodCache.getMaskEncryptedMethod();
         String operatorName = null;
         if (maskEncryptedMethod != null) {
-            DataSecurityMaskProperties maskProperties = dataSecurityProperties.getMaskProperties();
+            DataSecurityMaskProperties maskProperties = dataSecurityProperties.getMask();
             if (maskProperties != null) {
                 operatorName = maskProperties.getEncryptOperatorName();
                 if (operatorName != null && !operatorName.isEmpty()) {

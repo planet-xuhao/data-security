@@ -36,9 +36,9 @@ public class MaskAspectInitializer {
         DataSecurityAdvisor advisor = new DataSecurityAdvisor(advice, MaskMethod.class);
         // 设置优先级
         if (dataSecurityProperties != null
-                && dataSecurityProperties.getMaskProperties() != null
-                && dataSecurityProperties.getMaskProperties().getAopOrder() != null) {
-            advisor.setOrder(dataSecurityProperties.getMaskProperties().getAopOrder());
+                && dataSecurityProperties.getMask() != null
+                && dataSecurityProperties.getMask().getAopOrder() != null) {
+            advisor.setOrder(dataSecurityProperties.getMask().getAopOrder());
         } else {
             advisor.setOrder(Ordered.HIGHEST_PRECEDENCE);
         }

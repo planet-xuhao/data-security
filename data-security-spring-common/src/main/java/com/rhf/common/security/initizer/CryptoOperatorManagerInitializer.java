@@ -55,11 +55,11 @@ public class CryptoOperatorManagerInitializer {
      * 加密算法注册到CryptoOperatorManager
      */
     private void registerOperatorFormProperties(CryptoOperatorManager cryptoOperatorManager) {
-        DataSecurityEncryptProperties encryptProperties = dataSecurityProperties.getEncryptProperties();
+        DataSecurityEncryptProperties encryptProperties = dataSecurityProperties.getEncrypt();
         if (encryptProperties == null) {
             return;
         }
-        List<CryptoOperatorProperties> operatorPropertiesList = encryptProperties.getOperatorList();
+        List<CryptoOperatorProperties> operatorPropertiesList = encryptProperties.getOperators();
         if (operatorPropertiesList == null) {
             return;
         }
